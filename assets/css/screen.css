@@ -125,6 +125,13 @@ production stylesheet in assets/built/screen.css
     padding: 0;
 }
 
+.site-title-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #37b5a0;
+}
+
+
 .site-logo {
     max-height: 55px;
 }
