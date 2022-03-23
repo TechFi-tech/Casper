@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-around align-items-center">
                 <h1 class="d-none" id="postId">{{id}}</h1>
-                <h1 class="d-none" id="userId">{{#if @member}}{{@member.email}}{{/if}}</h1>
+                <h1 class="d-none" id="userId">{{#if @member}}{{@member.uuid}}{{/if}}</h1>
             <h2>How do you think about this post?</h2>
             <div class="d-flex justify-content-center">
             <div class="d-flex flex-column align-items-center">
@@ -10,7 +10,7 @@
                         title="Like" rel="noopener" 
                         {{#if @member}}onclick="like()"{{/if}}
                         >{{> "icons/like"}}</a>
-                        <p id="like-num" class="mt-1 font-weight-bold" style="font-size: large;">123</p>
+                        <p id="like-num" class="mt-1 font-weight-bold" style="font-size: large;">-</p>
             </div>
             <div class="ml-5 d-flex flex-column align-items-center">
                         <div class="d-none" id="clapped">0</div>
@@ -19,7 +19,7 @@
                         title="Like" rel="noopener" 
                         {{#if @member}}onclick="clap()"{{/if}}
                         >{{> "icons/clap"}}</a>
-                        <p id="clap-num" class="mt-1 font-weight-bold" style="font-size: large;">123</p>
+                        <p id="clap-num" class="mt-1 font-weight-bold" style="font-size: large;">-</p>
             </div>
             </div>
                 <script>
