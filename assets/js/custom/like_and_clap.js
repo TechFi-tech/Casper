@@ -1,6 +1,6 @@
 const postId = document.getElementById("postId").innerHTML
 const userId = document.getElementById("userId").innerHTML
-        
+
         if(TechFiIntegrationBaseURL){
         
         const getUrl = TechFiIntegrationBaseURL + "/posts?postId=" + postId + "&userId=" + userId
@@ -54,8 +54,8 @@ const userId = document.getElementById("userId").innerHTML
             api.send(`postId=${postId}&userId=${userId}`)
         }
         function like(){
-            //if(!TechFiIntegrationBaseURL) return;
-            const postURL = "http://localhost:8000/api/v1.0/posts/like"
+            if(!TechFiIntegrationBaseURL) return;
+            const postURL = TechFiIntegrationBaseURL + "/posts/like"
             console.log(postURL)
             const api = new XMLHttpRequest();
             
@@ -66,9 +66,9 @@ const userId = document.getElementById("userId").innerHTML
                 if(liked !== undefined){
                     document.getElementById("liked").innerHTML = liked
                     
-                    document.getElementById("Layer_1").setAttribute("fill", liked === 0 ? 'black': 'red')
+                    document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? 'red': 'black')
                 }
-                if(like)
+                if(like !== undefined)
                     document.getElementById("like-num").innerHTML = like
             }
             api.open("POST", postURL, true)
