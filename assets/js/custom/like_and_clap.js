@@ -1,6 +1,7 @@
 const postId = document.getElementById("postId").innerHTML
 const userId = document.getElementById("userId").innerHTML
-
+document.getElementById("Capa_1").setAttribute("fill", 'gray')
+document.getElementById("Layer_1").setAttribute("fill", 'gray')
         if(TechFiIntegrationBaseURL){
         
         const getUrl = TechFiIntegrationBaseURL + "/posts?postId=" + postId + "&userId=" + userId
