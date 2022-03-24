@@ -19,11 +19,11 @@ const userId = document.getElementById("userId").innerHTML
             document.getElementById("liked").innerHTML = liked
             document.getElementById("clapped").innerHTML = clapped
             if(clapped > 0){
-                document.getElementById("Capa_1").setAttribute("fill", 'red')
+                document.getElementById("Capa_1").setAttribute("fill", '#006e0b')
                 if(clapped >= 30)
-                document.getElementById("Capa_1").setAttribute("fill", "grey")
+                document.getElementById("Capa_1").setAttribute("fill", "#3b3b3b")
             }
-            document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? 'red': 'black')
+            document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? '#006e0b': 'gray')
         }
         xhttp.open("GET", getUrl);
         xhttp.send();
@@ -40,10 +40,11 @@ const userId = document.getElementById("userId").innerHTML
                 const clapped = res?.postMember?.clap;
                 if(clapped){
                     document.getElementById("clapped").innerHTML = clapped
+                    
                     if(clapped > 0){
-                        document.getElementById("Capa_1").setAttribute("fill", 'red')
+                        document.getElementById("Capa_1").setAttribute("fill", '#006e0b')
                         if(clapped >= 30)
-                    document.getElementById("Capa_1").setAttribute("fill", "grey")
+                    document.getElementById("Capa_1").setAttribute("fill", "#3b3b3b")
                     }
                 }
                 if(clap)
@@ -66,7 +67,7 @@ const userId = document.getElementById("userId").innerHTML
                 if(liked !== undefined){
                     document.getElementById("liked").innerHTML = liked
                     
-                    document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? 'red': 'black')
+                    document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? '#006e0b': 'gray')
                 }
                 if(like !== undefined)
                     document.getElementById("like-num").innerHTML = like

@@ -1,0 +1,32 @@
+@keyframes rotReact {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(20deg);}
+    100% {transform: rotate(0deg);}
+}
+@keyframes sizeReact {
+    0% {width: 40px; height: 40px;}
+    50% {width: 30px; height: 30px;}
+    100% {width: 40px; height: 40px;}
+}
+.reaction:hover{
+    fill: green;
+    width: 40px;
+    height: 40px;
+    transition: width 0.5s, height 0.5s, fill 0.2s;
+    animation-name: rotReact;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+.reaction{
+    width: 30px;
+    height: 30px;
+    transition: width 0.5s, height 0.5s, fill 0.2s;
+}
+
+a:active .reaction{
+    fill: #58fc84;
+    transition: fill 0.2s;
+    animation-name: sizeReact;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+}
