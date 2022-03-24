@@ -20,11 +20,11 @@ document.getElementById("Layer_1").setAttribute("fill", 'gray')
             document.getElementById("liked").innerHTML = liked
             document.getElementById("clapped").innerHTML = clapped
             if(clapped > 0){
-                document.getElementById("Capa_1").setAttribute("fill", '#006e0b')
+                document.getElementById("Capa_1").setAttribute("fill", 'yellow')
                 if(clapped >= 30)
                 document.getElementById("Capa_1").setAttribute("fill", "#3b3b3b")
             }
-            document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? '#006e0b': 'gray')
+            document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? 'blue': 'gray')
         }
         xhttp.open("GET", getUrl);
         xhttp.send();
@@ -43,7 +43,7 @@ document.getElementById("Layer_1").setAttribute("fill", 'gray')
                     document.getElementById("clapped").innerHTML = clapped
                     
                     if(clapped > 0){
-                        document.getElementById("Capa_1").setAttribute("fill", '#006e0b')
+                        document.getElementById("Capa_1").setAttribute("fill", 'yellow')
                         if(clapped >= 30)
                     document.getElementById("Capa_1").setAttribute("fill", "#3b3b3b")
                     }
@@ -68,7 +68,7 @@ document.getElementById("Layer_1").setAttribute("fill", 'gray')
                 if(liked !== undefined){
                     document.getElementById("liked").innerHTML = liked
                     
-                    document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? '#006e0b': 'gray')
+                    document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? 'blue': 'gray')
                 }
                 if(like !== undefined)
                     document.getElementById("like-num").innerHTML = like

@@ -21,11 +21,12 @@
 
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
-    <link rel="stylesheet" href="{{asset "css/custom.css"}}" />
+    
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
+    <link rel="stylesheet" href="{{asset "css/custom.css"}}" />
     {{ghost_head}}
 
 </head>
@@ -33,24 +34,25 @@
 <div class="viewport">
 
     <header id="gh-head" class="gh-head{{#match @custom.publication_cover_style "!=" "None"}} has-cover{{/match}}">
-        <nav class="gh-head-inner inner gh-container">
-
+        <nav class="w-100 d-flex justify-content-between  align-items-center p-2">
+            <div class="d-flex justify-content-between align-items-center">
             <div class="gh-head-brand">
-                <a class="gh-head-logo" href="{{@site.url}}">
+                <a class="logo-link" href="{{@site.url}}">
                     {{#if @site.logo}}
                         <img src="{{@site.logo}}" alt="{{@site.title}}" />
                     {{else}}
                         {{@site.title}}
                     {{/if}}
                 </a>
-                <a class="gh-burger" role="button">
+                {{!-- <a class="gh-burger" role="button">
                     <div class="gh-burger-box">
                         <div class="gh-burger-inner"></div>
                     </div>
-                </a>
+                </a> --}}
             </div>
-            <div class="gh-head-menu">
+            <div class="">
                 {{navigation}}
+            </div>
             </div>
             <div class="gh-head-actions">
                 <div class="gh-social">

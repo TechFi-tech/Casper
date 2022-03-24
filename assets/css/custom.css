@@ -24,9 +24,37 @@
 }
 
 a:active .reaction{
-    fill: #58fc84;
     transition: fill 0.2s;
     animation-name: sizeReact;
     animation-duration: 0.2s;
     animation-iteration-count: 1;
+}
+.logo-link{
+    font-size: 18px;
+    font-weight: bold;
+    transition: font-size 1s;
+}
+.logo-link:hover{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: font-size 1s;
+}
+.navi-link{
+    margin-left: "20px";
+    font-weight: 500;
+    opacity: 0.8;
+}
+.navi-link.active{
+    font-weight: 700;
+}
+.navi-link:hover{
+    color: white;
+    opacity: 1;
+    text-decoration: none;
+    transition: opacity 0.5s;
+}
+.article-title{
+    font-size: 50px;
+    font-weight: bold;
 }

@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between">
+        <!-- Loop through the navigation items -->
+        {{#foreach navigation}}
+        <div class="ml-5">
+        <a class="navi-link {{#if current}} active{{/if}}" href="{{url absolute="true"}}">{{label}}</a>
+        </div>
+        {{/foreach}}
+        <!-- End the loop -->
+</div>
