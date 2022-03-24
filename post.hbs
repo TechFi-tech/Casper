@@ -69,9 +69,18 @@ into the {body} tag of the default.hbs template --}}
             {{/if}}
         </header>
 
+
         <section class="gh-content gh-canvas">
-            {{content}}
+            <section class="post-full-content">
+                <aside class="toc-container">
+                    <div class="toc"></div>
+                </aside>
+                <div class="post-content">
+                    {{content}}
+                </div>
+            </section>
         </section>
+
 
         {{!--
         <section class="article-comments gh-canvas">
