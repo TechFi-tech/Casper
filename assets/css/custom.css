@@ -1,0 +1,19 @@
+
+
+@media only screen and (min-width: 700px) {
+    .post-content{
+        width: 80%;
+    }
+    .full-post{
+        display: flex;
+    }
+    .toc-container{
+        position: sticky;
+        position: -webkit-sticky;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+      .toc-container{
+          margin: 30px;
+      }
+  }

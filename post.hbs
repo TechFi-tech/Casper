@@ -68,19 +68,24 @@ into the {body} tag of the default.hbs template --}}
             </figure>
             {{/if}}
         </header>
-
-
-        <section class="gh-content gh-canvas">
-            <section class="post-full-content">
-                <aside class="toc-container">
-                    <div class="toc"></div>
-                </aside>
-                <div class="post-content">
+        <div class="p-lg-5 p-md-3 full-post">
+        
+        <div class="toc-container">
+            
+            <div class="toc">
+                
+            </div>
+        </div>
+        {{!-- <section class="gh-content gh-canvas">
+            <section class="post-full-content"> --}}
+                
+                <div class="container post-content">
                     {{content}}
                 </div>
-            </section>
-        </section>
-
+            {{!-- </section>
+        </section> --}}
+        
+        </div>
 
         {{!--
         <section class="article-comments gh-canvas">
