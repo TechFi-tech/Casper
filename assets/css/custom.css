@@ -94,3 +94,36 @@ a:active .reaction{
     font-size: 25px;
     transition: font-size 1s, box-shadow 1s;
 }
+
+.site-cover{
+    width: 100%;
+    background-color: #062225;
+}
+.site-p{
+    color: #37b5a0; font-size: 50px; margin-bottom: 10%; margin-top: -10%;
+}
+@media only screen and (min-width: 1400px) {
+    .site-p{
+        font-size: 70px;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .site-p{
+        font-size: 60px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .site-p{
+        font-size: 50px;
+    }
+}
+@media only screen and (max-width: 850px) {
+    .site-p{
+        font-size: 40px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .site-p{
+        font-size: 25px;
+    }
+}

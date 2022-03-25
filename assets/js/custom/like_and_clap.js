@@ -31,7 +31,7 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
         xhttp.send();
     }
     else{
-
+        document.getElementById("like-clap").setAttribute("display", "none")
     }
         function clap(){
             if(!TechFiIntegrationBaseURL) return;
