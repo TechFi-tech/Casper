@@ -9,16 +9,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-        :root {
-            {{#if @custom.header_button_background}}
-            --button-bg-color: {{@custom.header_button_background}};
-            {{/if}}
-            --button-text-color: {{#match @custom.header_button_text_color "Light"}}#fff{{else}}var(--color-darkgrey){{/match}};
-            --body-font: {{@custom.body_font}}
-        }
-        
-    </style>
+    
 
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
@@ -31,11 +22,35 @@
     it should always be the last tag before the closing head tag --}}
     
     <link rel="stylesheet" href="{{asset "css/custom.css"}}" />
-
+    <style>
+        :root {
+            {{#if @custom.header_button_background}}
+            --button-bg-color: {{@custom.header_button_background}};
+            {{/if}}
+            --button-text-color: {{#match @custom.header_button_text_color "Light"}}#fff{{else}}var(--color-darkgrey){{/match}};
+            
+            --font-roman: "Times New Roman", Times, serif;
+            --body-font: 
+            {{#match @custom.body_font "=" "Modern sans-serif"}}var(--font-sans-serif)
+            {{else}}
+            {{#match @custom.body_font "=" "Elegant serif"}}var(--font-sans-serif)
+                var(--font-serif)
+                {{else}}
+                var(--font-roman)
+            {{/match}}
+            {{/match}};
+        }
+        
+    </style>
     {{ghost_head}}
 
 </head>
-<body class="{{body_class}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}">
+<body class="{{body_class}}
+{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}
+{{#match @custom.title_font "=" "Times new roman"}} has-roman-title{{/match}}
+{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}
+{{#match @custom.body_font "=" "Times new roman"}} has-roman {{/match}}
+">
 <div class="viewport">
 
     <header id="gh-head" class="gh-head">

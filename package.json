@@ -94,17 +94,19 @@
                 "type": "select",
                 "options": [
                     "Modern sans-serif",
-                    "Elegant serif"
+                    "Elegant serif",
+                    "Times new roman"
                 ],
-                "default": "Modern sans-serif"
+                "default": "Times new roman"
             },
             "body_font": {
                 "type": "select",
                 "options": [
                     "Modern sans-serif",
-                    "Elegant serif"
+                    "Elegant serif",
+                    "Times new roman"
                 ],
-                "default": "Elegant serif"
+                "default": "Times new roman"
             },
             "publication_cover_style": {
                 "type": "select",
