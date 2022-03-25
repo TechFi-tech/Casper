@@ -9,7 +9,7 @@
     100% {width: 40px; height: 40px;}
 }
 .reaction:hover{
-    fill: green;
+    /* fill: green; */
     width: 40px;
     height: 40px;
     transition: width 0.5s, height 0.5s, fill 0.2s;
@@ -75,4 +75,22 @@ a:active .reaction{
 .custom-btn{
 
     background-color: transparent
+}
+.off-menu{
+    background-color: #062225;
+    overflow: scroll;
+    z-index: 100000;
+}
+
+.mobile-nav-div:hover{
+    border-bottom: 1px solid #00bea5;
+    box-shadow: 0px 10px 10px  #00bea571;
+}
+.mobile-nav-div .navi-link{
+    font-size: 20px;
+    transition: font-size 1s, box-shadow 1s;
+}
+.mobile-nav-div .navi-link:hover{
+    font-size: 25px;
+    transition: font-size 1s, box-shadow 1s;
 }

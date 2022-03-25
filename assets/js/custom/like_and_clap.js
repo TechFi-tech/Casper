@@ -1,7 +1,7 @@
 const postId = document.getElementById("postId").innerHTML
 const userId = document.getElementById("userId").innerHTML
-document.getElementById("Capa_1").setAttribute("fill", 'gray')
-document.getElementById("Layer_1").setAttribute("fill", 'gray')
+document.getElementById("Capa_1").setAttribute("fill", '#062225')
+document.getElementById("Like_1").setAttribute("fill", '#062225')
         if(TechFiIntegrationBaseURL){
         
         const getUrl = TechFiIntegrationBaseURL + "/posts?postId=" + postId + "&userId=" + userId
@@ -16,18 +16,22 @@ document.getElementById("Layer_1").setAttribute("fill", 'gray')
 
             const liked = res?.postMember?.like ? res.postMember.like : 0;
             const clapped = res?.postMember?.clap ? res.postMember.clap: 0;
-
+            
             document.getElementById("liked").innerHTML = liked
             document.getElementById("clapped").innerHTML = clapped
             if(clapped > 0){
-                document.getElementById("Capa_1").setAttribute("fill", 'yellow')
+                document.getElementById("Capa_1").setAttribute("fill", '#00bea5')
                 if(clapped >= 30)
                 document.getElementById("Capa_1").setAttribute("fill", "#3b3b3b")
             }
-            document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? 'blue': 'gray')
+            
+            document.getElementById("Like_1").setAttribute("fill", liked > 0 ? '#00bea5': '#062225')
         }
         xhttp.open("GET", getUrl);
         xhttp.send();
+    }
+    else{
+
     }
         function clap(){
             if(!TechFiIntegrationBaseURL) return;
@@ -43,7 +47,7 @@ document.getElementById("Layer_1").setAttribute("fill", 'gray')
                     document.getElementById("clapped").innerHTML = clapped
                     
                     if(clapped > 0){
-                        document.getElementById("Capa_1").setAttribute("fill", 'yellow')
+                        document.getElementById("Capa_1").setAttribute("fill", '#00bea5')
                         if(clapped >= 30)
                     document.getElementById("Capa_1").setAttribute("fill", "#3b3b3b")
                     }
@@ -68,7 +72,7 @@ document.getElementById("Layer_1").setAttribute("fill", 'gray')
                 if(liked !== undefined){
                     document.getElementById("liked").innerHTML = liked
                     
-                    document.getElementById("Layer_1").setAttribute("fill", liked > 0 ? 'blue': 'gray')
+                    document.getElementById("Like_1").setAttribute("fill", liked > 0 ? '#00bea5': '#062225')
                 }
                 if(like !== undefined)
                     document.getElementById("like-num").innerHTML = like
