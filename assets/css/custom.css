@@ -10,14 +10,20 @@
     .toc-container{
         position: sticky;
         position: -webkit-sticky;
+        margin-right: 20px;
     }
   }
-  
   @media only screen and (max-width: 1000px) {
-      .toc-container{
-        margin: 40px;
-      }
-  }
+    .toc-container{
+      margin-left: 40px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .toc-container{
+      margin-right: 40px;
+    }
+}
+
   .post-content{
       margin-left: 10px;
   }
