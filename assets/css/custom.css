@@ -127,3 +127,39 @@ a:active .reaction{
         font-size: 25px;
     }
 }
+.custom-post-card{
+    border: 1px solid #00bea5;
+}
+table{
+    border: 2px solid #062225;
+    width: 100%;
+    
+}
+tr{
+    display:table;
+    table-layout:fixed;
+    width: 100%;
+}
+th{
+    padding: 5px;
+    font-size: large;
+    font-weight: bold;
+    background-color: #062225;
+    color: white;
+    font-family: var(--body-font);
+}
+td{
+    font-size: medium;
+    padding: 5px;
+    border: 1px solid #062225;
+    font-family: var(--body-font);
+}
+.equal-row{
+    display:table;
+    table-layout:fixed;
+    width: 100%;
+}
+.equal-cell{
+    display: table-cell;
+    width: 100px;
+}

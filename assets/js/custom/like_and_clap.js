@@ -34,6 +34,7 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
         document.getElementById("like-clap").setAttribute("display", "none")
     }
         function clap(){
+            console.log($('.clap-alert'))
             if(!TechFiIntegrationBaseURL) return;
             const postURL = TechFiIntegrationBaseURL + "/posts/clap"
             const api = new XMLHttpRequest();
