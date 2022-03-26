@@ -210,3 +210,100 @@ td{
 .code-toolbar{
     font-size: large;
 }
+h1{
+    font-size: 5rem;
+}
+h2{
+    font-size: 4rem;
+}
+h3{
+    font-size: 3rem;
+}
+.post-card-title{
+    font-weight: bold;
+}
+.toc-link{
+    font-size: large;
+    font-family: var(--body-font);
+}
+.toc-link:hover{
+    color:#00bea5;
+}
+.toc-list-item{
+    margin-bottom: 2em;
+}
+.toc-container{
+    margin-left: -50px;
+}
+.post-header{
+    margin-bottom: 5em;
+    padding: 3em;
+}
+
+@media only screen and (min-width:800px) {
+    .post-header{
+        width: auto;
+    }
+}
+
+.post-content{
+    padding-right: 10em;
+}
+.toc-container{
+    height: fit-content;
+}
+@media only screen and (max-width:1000px) {
+    .toc-container{
+        margin: 2em;
+    }
+    .post-content{
+        padding: 2em;
+    }
+    .content-container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+@media only screen and (min-width:1000px) {
+    .toc-container{
+        height: fit-content;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        padding-top: 1em;
+    }
+    .content-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .post-header{
+        width: 85%;
+    }
+    .pad{
+        width: 7.5%;
+    }
+    .toc-container{
+        width: 20%;
+    }
+    .post-content{
+        width: 70%;
+    }
+
+    .toc-container1{
+        display: none;
+    }
+}
+@media only screen and (min-width:1400px) {
+    .post-header{
+        width: 75%;
+    }
+    .pad{
+        width: 12.5%;
+    }
+    .toc-container{
+        width: 20%;
+    }
+    .post-content{
+        width: 65%;
+    }
+}

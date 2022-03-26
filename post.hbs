@@ -10,21 +10,19 @@ into the {body} tag of the default.hbs template --}}
 <main id="site-main" class="site-main">
     
     <article class="article {{post_class}} {{#match @custom.post_image_width "Full"}}image-full{{else match @custom.post_image_width "=" "Small"}}image-small{{/match}}">
-        
-        <header class="article-header gh-canvas">
+        <div class="w-100 d-flex flex-column align-items-center">
+            <div class="post-header">
+                {{#if primary_tag}}
+                    <section class="article-tag">
+                        <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+                    </section>
+                {{/if}}
+                <h1 class="article-title">{{title}}</h1>
 
-            {{#if primary_tag}}
-            <section class="article-tag">
-                <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
-            </section>
-            {{/if}}
-
-            <h1 class="article-title">{{title}}</h1>
-
-            {{#if custom_excerpt}}
-            <p class="article-excerpt">{{custom_excerpt}}</p>
-            {{/if}}
-            <div class="article-byline">
+                {{#if custom_excerpt}}
+                    <p class="article-excerpt">{{custom_excerpt}}</p>
+                {{/if}}
+                <div class="article-byline">
                 <section class="article-byline-content">
                     <ul class="author-list">
                         {{#foreach authors}}
@@ -47,7 +45,10 @@ into the {body} tag of the default.hbs template --}}
                         </div>
                     </div>
                 </section>
+                </div>
             </div>
+            
+            
 
             {{#if feature_image}}
             <figure class="article-image">
@@ -67,13 +68,20 @@ into the {body} tag of the default.hbs template --}}
                 {{/if}}
             </figure>
             {{/if}}
-        </header>
+        </div>
+        <div class="content-container p-3" style="position:static;">
+        <div class="pad">
 
-        <section class="gh-content gh-canvas">
+        </div>
+        <section class="gh-content post-content">
             {{content}}
             {{> like_clap}}
         </section>
-        
+        <div class="toc-container">
+            <h3 style="font-family: var(--body-font); margin-bottom: 1em">Table of Contents</h2>
+            <div class="toc"></div>
+        </div>
+        </div>
         {{!--
         <section class="article-comments gh-canvas">
             If you want to embed comments, this is a good place to paste your code!
