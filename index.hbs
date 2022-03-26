@@ -7,7 +7,7 @@ into the {body} of the default.hbs template --}}
         <div class="d-flex flex-column justify-content-center align-items-center">
         
             {{#if @site.logo}}
-                <img class="" style="width: 50%;" src="{{img_url @site.logo}}" alt="{{@site.title}}" />
+                <img class="" style="width: 30%; margin-top: 20px" src="{{img_url @site.logo}}" alt="{{@site.title}}" />
             {{else}}
                 {{@site.title}}
             {{/if}}

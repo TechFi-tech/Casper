@@ -41,7 +41,7 @@ a:active .reaction{
     transition: font-size 1s;
 }
 .logo-link img{
-    max-width: 200px;
+    max-width: 100px;
 
 }
 .navi-link{
@@ -100,7 +100,7 @@ a:active .reaction{
     background-color: #062225;
 }
 .site-p{
-    color: #37b5a0; font-size: 50px; margin-bottom: 10%; margin-top: -10%;
+    color: #37b5a0; font-size: 50px; margin-bottom: 10%;
 }
 @media only screen and (min-width: 1400px) {
     .site-p{
@@ -201,4 +201,12 @@ td{
 }
 .has-roman-title .gh-content > [id] {
     font-family: var(--font-roman);
+}
+/* code span{
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+
+} */
+.code-toolbar{
+    font-size: large;
 }
