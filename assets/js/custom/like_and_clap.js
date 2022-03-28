@@ -1,5 +1,5 @@
 const postId = document.getElementById("postId").innerHTML
-const userId = document.getElementById("userId").innerHTML
+const userId = document.getElementById("userId").innerHTML || "0"
 document.getElementById("Capa_1").setAttribute("fill", '#062225')
 document.getElementById("Like_1").setAttribute("fill", '#062225')
         if(TechFiIntegrationBaseURL){
