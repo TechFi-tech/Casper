@@ -58,6 +58,9 @@ a:active .reaction{
     text-decoration: none;
     transition: opacity 0.5s;
 }
+.navi-link-secondary{
+    font-size:small;
+}
 .article-title{
     font-size: 50px;
     font-weight: bold;
@@ -305,5 +308,42 @@ h3{
     }
     .post-content{
         width: 65%;
+    }
+}
+.copy{
+    font-size: small;
+}
+.powerby{
+    font-size: small;
+}
+@media only screen and (max-width:800px) {
+.footer-nav{
+    width: 100%;
+}
+.copy{
+    margin-top: 1em;
+    width: 100%;
+    text-align: center;
+}
+.powerby{
+    margin-top: 1em;
+    width: 100%;
+    text-align: center;
+}
+}
+@media only screen and (min-width:800px) {
+    .footer-content{
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer-nav{
+        order: 2;
+        width: 60%;
+    }
+    .copy{
+        order: 1;
+    }
+    .powerby{
+        order: 3;
     }
 }
