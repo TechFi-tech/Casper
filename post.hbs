@@ -15,6 +15,12 @@ into the {body} tag of the default.hbs template --}}
                 {{#if primary_tag}}
                     <section class="article-tag">
                         <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+                        <a
+                        {{#unless @member}}href ='#/portal'{{/unless}}
+                        title="Save to your favourite list" rel="noopener" 
+                        {{#if @member}}onclick="save()"{{/if}}
+                        >{{> icons/save}}</a>
+                        
                     </section>
                 {{/if}}
                 <h1 class="article-title">{{title}}</h1>
@@ -75,7 +81,10 @@ into the {body} tag of the default.hbs template --}}
         </div>
         <section class="gh-content post-content">
             {{content}}
+            <div class="like-share">
             {{> like_clap}}
+            {{> share-block}}
+            </div>
         </section>
         <div class="toc-container">
             <h3 style="font-family: var(--body-font); margin-bottom: 1em">Table of Contents</h2>
@@ -88,7 +97,7 @@ into the {body} tag of the default.hbs template --}}
         </section>
         --}}
 
-        
+        <script src="{{asset "js/custom/save.js"}}"></script>
         
     </article>
     
