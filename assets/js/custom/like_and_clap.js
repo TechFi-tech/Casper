@@ -14,8 +14,8 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
             document.getElementById("like-num").innerHTML = like
             document.getElementById("clap-num").innerHTML = clap
 
-            const liked = res?.postMember?.like ? res.postMember.like : 0;
-            const clapped = res?.postMember?.clap ? res.postMember.clap: 0;
+            const liked = res?.postUser?.like ? res.postUser.like : 0;
+            const clapped = res?.postUser?.clap ? res.postUser.clap: 0;
             
             document.getElementById("liked").innerHTML = liked
             document.getElementById("clapped").innerHTML = clapped
@@ -43,7 +43,7 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
             api.onload = function(){
                 res = JSON.parse(this.responseText)
                 const clap = res?.postInfo?.clap;
-                const clapped = res?.postMember?.clap;
+                const clapped = res?.postUser?.clap;
                 if(clapped){
                     document.getElementById("clapped").innerHTML = clapped
                     
@@ -69,7 +69,7 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
             api.onload = function(){
                 res = JSON.parse(this.responseText)
                 const like = res?.postInfo?.like;
-                const liked = res?.postMember?.like;
+                const liked = res?.postUser?.like;
                 if(liked !== undefined){
                     document.getElementById("liked").innerHTML = liked
                     
@@ -82,4 +82,7 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
 
             api.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             api.send(`postId=${postId}&userId=${userId}`)
+        }
+        function save(){
+            
         }
