@@ -8,19 +8,19 @@ into the {body} tag of the default.hbs template --}}
 {{!-- Everything inside the #post block pulls data from the post --}}
 
 <main id="site-main" class="site-main">
-    
+
     <article class="article {{post_class}} {{#match @custom.post_image_width "Full"}}image-full{{else match @custom.post_image_width "=" "Small"}}image-small{{/match}}">
         <div class="w-100 d-flex flex-column align-items-center">
             <div class="post-header">
                 {{#if primary_tag}}
                     <section class="article-tag">
                         <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
-                        <a
-                        {{#unless @member}}href ='#/portal'{{/unless}}
-                        title="Save to your favourite list" rel="noopener" 
-                        {{#if @member}}onclick="save()"{{/if}}
-                        >{{> icons/save}}</a>
-                        
+<!--                        <a-->
+<!--                        {{#unless @member}}href ='#/portal'{{/unless}}-->
+<!--                        title="Save to your favourite list" rel="noopener" -->
+<!--                        {{#if @member}}onclick="save()"{{/if}}-->
+<!--                        >{{> icons/save}}</a>-->
+
                     </section>
                 {{/if}}
                 <h1 class="article-title">{{title}}</h1>
@@ -53,8 +53,8 @@ into the {body} tag of the default.hbs template --}}
                 </section>
                 </div>
             </div>
-            
-            
+
+
 
             {{#if feature_image}}
             <figure class="article-image">
@@ -98,9 +98,9 @@ into the {body} tag of the default.hbs template --}}
         --}}
 
         <script src="{{asset "js/custom/save.js"}}"></script>
-        
+
     </article>
-    
+
 </main>
 
 {{!-- A signup call to action is displayed here, unless viewed as a logged-in member --}}
