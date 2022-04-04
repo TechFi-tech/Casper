@@ -374,7 +374,7 @@ h3{
 .share-block a:hover {
     transform: scale(1.1);
 }
-#cls-1{fill:grey;stroke:#000000;stroke-width:10px;}
+#cls-1{stroke:#000000;stroke-width:10px;}
 #save{
     margin-left: 2rem;
     transition: all 0.3s;

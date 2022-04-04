@@ -1,7 +1,10 @@
-const postId = document.getElementById("postId").innerHTML
-const userId = document.getElementById("userId").innerHTML
+const postId = document.getElementById("postId").innerHTML 
+const userId = document.getElementById("userId").innerHTML || 0
 document.getElementById("Capa_1").setAttribute("fill", '#062225')
 document.getElementById("Like_1").setAttribute("fill", '#062225')
+document.getElementById("cls-1").setAttribute("fill", 'grey')
+
+var s = false;
         if(TechFiIntegrationBaseURL){
         
         const getUrl = TechFiIntegrationBaseURL + "/posts?postId=" + postId + "&userId=" + userId
@@ -16,7 +19,7 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
 
             const liked = res?.postUser?.like ? res.postUser.like : 0;
             const clapped = res?.postUser?.clap ? res.postUser.clap: 0;
-            
+            const saved = res?.postUser?.saved?res.postUser.saved : false;
             document.getElementById("liked").innerHTML = liked
             document.getElementById("clapped").innerHTML = clapped
             if(clapped > 0){
@@ -26,6 +29,8 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
             }
             
             document.getElementById("Like_1").setAttribute("fill", liked > 0 ? '#00bea5': '#062225')
+            document.getElementById("cls-1").setAttribute("fill", saved ? '#00bea5' : 'grey')
+            document.getElementById("saved").innerHTML = saved===true ? 1: 0
         }
         xhttp.open("GET", getUrl);
         xhttp.send();
@@ -63,7 +68,6 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
         function like(){
             if(!TechFiIntegrationBaseURL) return;
             const postURL = TechFiIntegrationBaseURL + "/posts/like"
-            console.log(postURL)
             const api = new XMLHttpRequest();
             
             api.onload = function(){
@@ -84,5 +88,22 @@ document.getElementById("Like_1").setAttribute("fill", '#062225')
             api.send(`postId=${postId}&userId=${userId}`)
         }
         function save(){
-            
+            if(!TechFiIntegrationBaseURL) return;
+            const postURL = TechFiIntegrationBaseURL + "/posts/saved"
+            const api = new XMLHttpRequest();
+            const saved = parseInt(document.getElementById("saved").innerHTML) === 0 ? true:false;
+            api.onload = function(){
+                res = JSON.parse(this.responseText)
+                const newSaved = res?.message
+                if(newSaved === undefined) newSaved=false
+                document.getElementById("saved").innerHTML = newSaved === "true"? 1: 0;
+                if(newSaved === "true")
+                    document.getElementById("cls-1").setAttribute("fill", '#00bea5')
+                else 
+                    document.getElementById("cls-1").setAttribute("fill", "grey")
+            }
+            api.open("POST", postURL, true)
+
+            api.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            api.send(`postId=${postId}&userId=${userId}&saved=${saved}`)
         }
