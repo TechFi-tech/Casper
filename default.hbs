@@ -70,14 +70,6 @@
             </div>
             </div>
             <div class="gh-head-actions">
-                <div class="gh-social">
-                    {{#if @site.facebook}}
-                        <a class="gh-social-facebook" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                    {{/if}}
-                    {{#if @site.twitter}}
-                        <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                    {{/if}}
-                </div>
 
                 {{#unless @member}}
                     <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
@@ -110,6 +102,9 @@
                                 {{#if @site.twitter}}
                                     <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
                                 {{/if}}
+
+                                <a class="" href="https://www.youtube.com/channel/UC3BYnKuxkND7MZMwbzwf6Rg" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+
                             </div>
                             {{#unless @member}}
                                 <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
@@ -144,9 +139,26 @@
 
             <nav class="footer-nav">
                 {{navigation type="secondary"}}
+
             </nav>
+
             <section class="copy"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
             <div class="powerby"><a href="https://techfi.tech" target="_blank" rel="noopener">Powered by TechFi</a></div>
+
+
+
+        </div>
+        <div class="w-100 d-flex justify-content-center" style="margin-top: 5rem">
+        <div class="gh-social">
+            {{#if @site.facebook}}
+                <a class="gh-social-facebook" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+            {{/if}}
+            {{#if @site.twitter}}
+                <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+            {{/if}}
+
+            <a class="" href="https://www.youtube.com/channel/UC3BYnKuxkND7MZMwbzwf6Rg" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+        </div>
         </div>
     </footer>
 
