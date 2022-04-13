@@ -4,7 +4,6 @@ document.getElementById("Capa_1").setAttribute("fill", '#062225')
 document.getElementById("Like_1").setAttribute("fill", '#062225')
 document.getElementById("cls-1").setAttribute("fill", 'grey')
 
-var s = false;
         if(TechFiIntegrationBaseURL){
         
         const getUrl = TechFiIntegrationBaseURL + "/posts?postId=" + postId + "&userId=" + userId
@@ -94,7 +93,7 @@ var s = false;
             const saved = parseInt(document.getElementById("saved").innerHTML) === 0 ? true:false;
             api.onload = function(){
                 res = JSON.parse(this.responseText)
-                const newSaved = res?.message
+                const newSaved = res?.saved
                 if(newSaved === undefined) newSaved=false
                 document.getElementById("saved").innerHTML = newSaved === "true"? 1: 0;
                 if(newSaved === "true")
