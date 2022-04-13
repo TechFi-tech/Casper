@@ -9,7 +9,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
+
 
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
-    
+
     <link rel="stylesheet" href="{{asset "css/custom.css"}}" />
     <style>
         :root {
@@ -28,9 +28,9 @@
             --button-bg-color: {{@custom.header_button_background}};
             {{/if}}
             --button-text-color: {{#match @custom.header_button_text_color "Light"}}#fff{{else}}var(--color-darkgrey){{/match}};
-            
+
             --font-roman: "Times New Roman", Times, serif;
-            --body-font: 
+            --body-font:
             {{#match @custom.body_font "=" "Modern sans-serif"}}var(--font-sans-serif)
             {{else}}
             {{#match @custom.body_font "=" "Elegant serif"}}var(--font-sans-serif)
@@ -40,7 +40,7 @@
             {{/match}}
             {{/match}};
         }
-        
+
     </style>
     {{ghost_head}}
 
@@ -70,14 +70,6 @@
             </div>
             </div>
             <div class="gh-head-actions">
-                <div class="gh-social">
-                    {{#if @site.facebook}}
-                        <a class="gh-social-facebook" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                    {{/if}}
-                    {{#if @site.twitter}}
-                        <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                    {{/if}}
-                </div>
 
                 {{#unless @member}}
                     <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
@@ -110,6 +102,9 @@
                                 {{#if @site.twitter}}
                                     <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
                                 {{/if}}
+
+                                <a class="" href="https://www.youtube.com/channel/UC3BYnKuxkND7MZMwbzwf6Rg" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+
                             </div>
                             {{#unless @member}}
                                 <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
@@ -117,11 +112,11 @@
                                 <a class="gh-head-button" href="#/portal/account" data-portal="account">Account</a>
                             {{/unless}}
                         </div>
-                        
+
                         </div>
-                    
-                
-                
+
+
+
             </div>
 
 <!-- Button to open the offcanvas sidebar -->
@@ -141,12 +136,29 @@
     {{!-- The global footer at the very bottom of the screen --}}
     <footer class="site-footer outer">
         <div class="footer-content">
-            
+
             <nav class="footer-nav">
                 {{navigation type="secondary"}}
+
             </nav>
+
             <section class="copy"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
-            <div class="powerby"><a href="https://techfi.tech/" target="_blank" rel="noopener">Powered by TechFi</a></div>
+            <div class="powerby"><a href="https://techfi.tech" target="_blank" rel="noopener">Powered by TechFi</a></div>
+
+
+
+        </div>
+        <div class="w-100 d-flex justify-content-center" style="margin-top: 5rem">
+        <div class="gh-social">
+            {{#if @site.facebook}}
+                <a class="gh-social-facebook" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+            {{/if}}
+            {{#if @site.twitter}}
+                <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+            {{/if}}
+
+            <a class="" href="https://www.youtube.com/channel/UC3BYnKuxkND7MZMwbzwf6Rg" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+        </div>
         </div>
     </footer>
 
@@ -165,7 +177,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset "built/casper.js"}}"></script>
 <script>
-    
+
     $('.clap-alert').show()
 $(document).ready(function () {
     // Mobile Menu Trigger
