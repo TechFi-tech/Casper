@@ -70,7 +70,7 @@
             </div>
             </div>
             <div class="gh-head-actions">
-            <div>
+            <div class="search-box-area">
                 <form>
                     <input id="search-field" placeholder="Searching" class="search-box-input" autocomplete="off"/>
                 </form>
@@ -126,7 +126,13 @@
             </div>
 
 <!-- Button to open the offcanvas sidebar -->
-<button class="custom-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+{{!-- <div style="display: inline-block;">
+<form>
+    <input id="search-field" placeholder="Searching" class="search-box-input" autocomplete="off"/>
+</form>
+<div id="results" class="search-result-box"></div>
+</div> --}}
+<button class="custom-btn collapse-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
   {{> "icons/menu"}}
 </button>
 </div>
@@ -208,12 +214,19 @@ $(document).ready(function () {
   <script type="text/javascript" src="{{asset "jquery.ghosthunter.js"}}"></script>
 
   <script>
+      if (window.matchMedia("(max-width: 700px)").matches) {
+  // Viewport is less or equal to 700 pixels wide
+  document.querySelector(".search-box-area").remove();
+  document.querySelector(".collapse-button").insertAdjacentHTML("beforebegin","<div style='display: inline-block;'><form><input id='search-field' placeholder='Searching' class='search-box-input' autocomplete='off'/></form><div id='results' class='search-result-box'></div></div>");
+} else {
+  // Viewport is greater than 700 pixels wide
+}
     $("#search-field").ghostHunter({
         results: "#results",
         onPageLoad: true,
         onKeyUp: true,
         displaySearchInfo: false,
-               });
+    });
   </script>
 {{{block "scripts"}}}
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}

@@ -83,6 +83,10 @@ a:active .reaction {
   .navigation {
     display: none;
   }
+
+  .search-result-box {
+    left: 50px;
+  }
 }
 @media only screen and (min-width: 700px) {
   .off-navi {
@@ -404,7 +408,15 @@ h3 {
 /* search box css */
 
 .search-result-box {
+  margin-top: 5px;
   position: absolute;
+  width: 300px;
+  max-height: 350px;
+  overflow: scroll;
+  background-color: #5c6866;
+  color: black;
+  border-radius: 5px;
+  z-index: 10000;
 }
 
 .search-box-input {
@@ -413,4 +425,33 @@ h3 {
   background-color: rgb(6, 34, 37);
   border-bottom: 2px solid #077869;
   padding: 5px;
+}
+
+.search-result-box-item {
+  display: flex;
+  color: rgb(219, 219, 219);
+  padding: 20px 10px 20px 10px;
+  border-bottom: 2px solid rgb(36, 44, 36);
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  justify-content: space-between;
+}
+
+.search-result-box-item:hover {
+  background-color: rgb(51, 62, 63);
+  color: white;
+  border-radius: 5px;
+}
+
+.search-result-box-item-link {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: right;
+}
+
+.search-result-box-item-link:hover {
+  text-decoration: none;
+  color: white;
 }
