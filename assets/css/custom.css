@@ -142,7 +142,7 @@ table{
 }
 
 tr{
-    display:-moz-inline-table;
+    /*display:-moz-inline-table;*/
     /*display:table;*/
     table-layout:fixed;
     width: 100%;
