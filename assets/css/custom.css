@@ -133,13 +133,17 @@ a:active .reaction{
 .custom-post-card{
     border: 1px solid #00bea5;
 }
+
 table{
+    /*display:-moz-inline-table;*/
     border: 2px solid #062225;
     width: 100%;
-    
+
 }
+
 tr{
-    display:table;
+    display:-moz-inline-table;
+    /*display:table;*/
     table-layout:fixed;
     width: 100%;
 }
