@@ -1,0 +1,57 @@
+{{!< default}}
+<section class="outer">
+<div id="add_to_me">
+    <p id="add_after_me">
+    </p>
+</div>
+</section>
+<script>
+    let integrationFrontendDefault = 'https://staging.i-frontent.techfi.tech'
+    // let integrationFrontendDefault = 'http://localhost:3000';
+    let integrationFrontend = integrationFrontendDefault
+    try {
+        integrationFrontend = integrationFrontendURL;
+    }catch (e){
+        console.log(e);
+    }
+    let userId = '{{@member.uuid}}';
+    // let userId = "19da796-d2ee-46b1-970e-33fb731ec13a";
+    // console.log(userId)
+
+    let PageNews = `${integrationFrontend}/news`;
+    console.log(PageNews);
+    // let PageProfile = "https://staging.i-frontent.techfi.tech/profile/919da796-d2ee-46b1-970e-33fb731ec13a";
+
+    function addCode(content) {
+        document.getElementById('add_after_me').insertAdjacentHTML('afterend',
+            content);
+    }
+
+    function makeHttpObject() {
+        try {
+            return new XMLHttpRequest();
+        } catch (error) {
+        }
+        try {
+            return new ActiveXObject('Msxml2.XMLHTTP');
+        } catch (error) {
+        }
+        try {
+            return new ActiveXObject('Microsoft.XMLHTTP');
+        } catch (error) {
+        }
+
+        throw new Error('Could not create HTTP request object.');
+    }
+
+    var request = makeHttpObject();
+    request.open('GET', PageNews, true);
+    request.send(null);
+    request.onreadystatechange = function () {
+        if (request.readyState == 4)
+            //alert(request.responseText);
+        {
+            addCode(request.responseText);
+        }
+    };
+</script>
