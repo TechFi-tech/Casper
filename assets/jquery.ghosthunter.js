@@ -3250,7 +3250,7 @@
     onPageLoad: false,
     onKeyUp: false,
     result_template:
-      "<div id='gh-{{ref}}' class='gh-search-item search-result-box-item'><div class='gh-search-hit-icon' style='display:inline-block; margin-left:5px;margin-right:15px;'><svg width='20' height='20' viewBox='0 0 20 20'><path d='M17 6v12c0 .52-.2 1-1 1H4c-.7 0-1-.33-1-1V2c0-.55.42-1 1-1h8l5 5zM14 8h-3.13c-.51 0-.87-.34-.87-.87V4' stroke='currentColor' fill='none' fill-rule='evenodd' stroke-linejoin='round'></path></svg></div> <a class='search-result-box-item-link' href='{{link}}'>{{title}}</a> </div>",
+      "<div id='gh-{{ref}}' class='gh-search-item search-result-box-item'><a class='search-result-box-item-link' href='{{link}}'>{{title}}</a> <div class='search-result-tag-box'> {{tags}} </div> </div> ",
     info_template: "<p>Number of posts found: {{amount}}</p>",
     displaySearchInfo: true,
     zeroResultsInfo: true,
@@ -3258,7 +3258,13 @@
     onComplete: false,
     filterfields: false,
     subpath: "",
-    item_preprocessor: false,
+    item_preprocessor: function (item) {
+      var ret = {};
+      ret.tags = item.tags
+        .map((t) => t.name)
+        .reduce((prev, cur) => prev + " " + cur, "");
+      return ret;
+    },
     indexing_start: false,
     indexing_end: false,
     includebodysearch: false,
@@ -3394,6 +3400,7 @@
             link: localUrl,
             tags: tag_arr,
           };
+
           // If there is a metadata "pre"-processor for the item, run it here.
           if (me.item_preprocessor) {
             Object.assign(
