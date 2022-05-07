@@ -3262,7 +3262,7 @@
       var ret = {};
       ret.tags = item.tags
         .map((t) => t.name)
-        .reduce((prev, cur) => prev + " " + cur, "");
+        .reduce((prev, cur) => prev + " #" + cur, "");
       return ret;
     },
     indexing_start: false,
