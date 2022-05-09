@@ -4,6 +4,9 @@
 <script>
 
     let userId = '{{@member.uuid}}';
+    var integrationMemberJwt = getIntegrationMemberJwtToken();
+    console.log("----------------------------------")
+    console.log(integrationMemberJwt);
 
     let PageProfile = `${integrationFrontend}/profile/${userId}`;
     console.log(PageProfile);
