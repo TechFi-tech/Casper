@@ -137,7 +137,6 @@ table {
   width: 100%;
 }
 tr {
-  display: table;
   table-layout: fixed;
   width: 100%;
 }
