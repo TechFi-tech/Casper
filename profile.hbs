@@ -1,7 +1,4 @@
 {{!< default}}
-<script>
-    var integrationMemberJwt = getIntegrationMemberJwtToken();
-</script>
 
 <iframe id="custom-profile" class="custom-iframe" src="" title="admin-news"></iframe>
 
@@ -10,8 +7,9 @@
     let userId = '{{@member.uuid}}';
     // console.log("----------------------------------")
     // console.log(integrationMemberJwt);
-
-    let PageProfile = `${integrationFrontend}/profile/${userId}`;
+    // localStorage.setItem("GhostUserUUID",userId);
+    var integrationMemberJwt = getIntegrationMemberJwtToken();
+    let PageProfile = `${integrationFrontend}/profile/${integrationMemberJwt}`;
     // console.log(PageProfile);
 
     // PageProfile = 'https://staging.i-frontent.techfi.tech/profile/919da796-d2ee-46b1-970e-33fb731ec13a';

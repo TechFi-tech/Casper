@@ -27,7 +27,6 @@ function httpPost(url, body, headers) {
 
 const ghostIntegrationJwtUrl = '/members/api/integration-member-jwt';
 var TechFiIntegrationBaseURL = TechFiIntegrationBaseURL || 'http://localhost:8000';
-getIntegrationMemberJwtToken;
 
 function getIntegrationMemberJwtToken() {
     var host = window.location.host;
