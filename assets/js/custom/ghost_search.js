@@ -7,7 +7,6 @@ if (!localVersion || localVersion !== GHOST_SEARCH_VESION) {
             console.log(`${key}: ${localStorage.getItem(key)}`);
             localStorage.setItem(key, '');
         }
-
     }
     localStorage.setItem(GHOST_SEARCH_VESION_KEY, GHOST_SEARCH_VESION);
 }
