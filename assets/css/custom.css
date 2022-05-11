@@ -375,6 +375,7 @@ h3 {
 }
 
 .search-result-box-item {
+    text-align: left;
   color: rgb(219, 219, 219);
   padding: 20px 10px 20px 10px;
   border-bottom: 2px solid rgb(36, 44, 36);
