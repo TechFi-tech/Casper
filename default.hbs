@@ -22,22 +22,26 @@
     it should always be the last tag before the closing head tag --}}
 
     <link rel="stylesheet" href="{{asset "css/custom.css"}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
     <style>
         :root {
             {{#if @custom.header_button_background}}
-            --button-bg-color: {{@custom.header_button_background}};
+                --button-bg-color: {{@custom.header_button_background}};
             {{/if}}
-            --button-text-color: {{#match @custom.header_button_text_color "Light"}}#fff{{else}}var(--color-darkgrey){{/match}};
+        --button-text-color: {{#match @custom.header_button_text_color "Light"}}#fff{{else}}var(--color-darkgrey){{/match}};
 
             --font-roman: "Times New Roman", Times, serif;
-            --body-font:
+        --body-font:
             {{#match @custom.body_font "=" "Modern sans-serif"}}var(--font-sans-serif)
             {{else}}
-            {{#match @custom.body_font "=" "Elegant serif"}}var(--font-sans-serif)
+                {{#match @custom.body_font "=" "Elegant serif"}}var(--font-sans-serif)
                 var(--font-serif)
                 {{else}}
                 var(--font-roman)
-            {{/match}}
+                {{/match}}
             {{/match}};
         }
 
@@ -48,36 +52,36 @@
 
 </head>
 <body class="{{body_class}}
-{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}
-{{#match @custom.title_font "=" "Times new roman"}} has-roman-title{{/match}}
-{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}
-{{#match @custom.body_font "=" "Times new roman"}} has-roman {{/match}}
+    {{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}
+    {{#match @custom.title_font "=" "Times new roman"}} has-roman-title{{/match}}
+    {{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}
+    {{#match @custom.body_font "=" "Times new roman"}} has-roman {{/match}}
 ">
 <div class="viewport">
 
     <header id="gh-head" class="gh-head">
         <nav class="w-100 d-flex justify-content-between  align-items-center p-lg-2">
             <div class="d-flex justify-content-between align-items-center">
-            <div class="gh-head-brand">
-                <a class="logo-link" href="{{@site.url}}">
-                    {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                    {{else}}
-                        {{@site.title}}
-                    {{/if}}
-                </a>
-            </div>
-            <div class="navigation">
-                {{navigation}}
-            </div>
+                <div class="gh-head-brand">
+                    <a class="logo-link" href="{{@site.url}}">
+                        {{#if @site.logo}}
+                            <img src="{{@site.logo}}" alt="{{@site.title}}" />
+                        {{else}}
+                            {{@site.title}}
+                        {{/if}}
+                    </a>
+                </div>
+                <div class="navigation">
+                    {{navigation}}
+                </div>
             </div>
             <div class="gh-head-actions">
-            <div class="search-box-area">
-                <form>
-                    <input id="search-field" placeholder="Searching" class="search-box-input" autocomplete="off"/>
-                </form>
-                <div id="results" class="search-result-box"></div>
-            </div>
+                <div class="search-box-area">
+                    <form>
+                        <input id="search-field" placeholder="Searching" class="search-box-input" autocomplete="off"/>
+                    </form>
+                    <div id="results" class="search-result-box"></div>
+                </div>
 
                 {{#unless @member}}
                     <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
@@ -86,7 +90,7 @@
                 {{/unless}}
             </div>
             <div class="off-navi">
-                    <div class="offcanvas offcanvas-top h-100 off-menu" id="demo">
+                <div class="offcanvas offcanvas-top h-100 off-menu" id="demo">
                     <div class="offcanvas-header">
                         <div></div>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
@@ -100,8 +104,8 @@
                             {{/if}}
                         </a>
                     </div>
-                        {{> mobile_navigation}}
-                        <div class="d-flex flex-column align-items-center justify-content-between">
+                    {{> mobile_navigation}}
+                    <div class="d-flex flex-column align-items-center justify-content-between">
                         <div class="w-100 d-flex justify-content-around" style="margin-top: 25%; margin-bottom: 10%">
                             <div class="gh-social">
                                 {{#if @site.facebook}}
@@ -122,23 +126,23 @@
                             {{/unless}}
                         </div>
 
-                        </div>
+                    </div>
 
 
 
+                </div>
+
+                <!-- Button to open the offcanvas sidebar -->
+                {{!-- <div style="display: inline-block;">
+                <form>
+                    <input id="search-field" placeholder="Searching" class="search-box-input" autocomplete="off"/>
+                </form>
+                <div id="results" class="search-result-box"></div>
+                </div> --}}
+                <button class="custom-btn collapse-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+                    {{> "icons/menu"}}
+                </button>
             </div>
-
-<!-- Button to open the offcanvas sidebar -->
-{{!-- <div style="display: inline-block;">
-<form>
-    <input id="search-field" placeholder="Searching" class="search-box-input" autocomplete="off"/>
-</form>
-<div id="results" class="search-result-box"></div>
-</div> --}}
-<button class="custom-btn collapse-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-  {{> "icons/menu"}}
-</button>
-</div>
         </nav>
     </header>
 
@@ -166,17 +170,17 @@
 
         </div>
         <div class="w-100 d-flex justify-content-center" style="margin-top: 5rem">
-        <div class="gh-social">
-            {{#if @site.facebook}}
-                <a class="gh-social-facebook" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-            {{/if}}
-            {{#if @site.twitter}}
-                <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-            {{/if}}
+            <div class="gh-social">
+                {{#if @site.facebook}}
+                    <a class="gh-social-facebook" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                {{/if}}
+                {{#if @site.twitter}}
+                    <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                {{/if}}
 
-            <a class="" href="https://www.youtube.com/channel/UC3BYnKuxkND7MZMwbzwf6Rg" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
-            <a class="" href="https://t.me/techfi_tech" title="Telegram" target="_blank" rel="noopener">{{> "icons/telegram"}}</a>
-        </div>
+                <a class="" href="https://www.youtube.com/channel/UC3BYnKuxkND7MZMwbzwf6Rg" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+                <a class="" href="https://t.me/techfi_tech" title="Telegram" target="_blank" rel="noopener">{{> "icons/telegram"}}</a>
+            </div>
         </div>
     </footer>
 
@@ -191,21 +195,21 @@
     crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="{{asset "built/casper.js"}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset "built/casper.js"}}"></script>
 
 <script>
 
     $('.clap-alert').show()
-$(document).ready(function () {
-    // Mobile Menu Trigger
-    $('.gh-burger').click(function () {
-        $('body').toggleClass('gh-head-open');
+    $(document).ready(function () {
+        // Mobile Menu Trigger
+        $('.gh-burger').click(function () {
+            $('body').toggleClass('gh-head-open');
+        });
+        // FitVids - Makes video embeds responsive
+        $(".gh-content").fitVids();
     });
-    // FitVids - Makes video embeds responsive
-    $(".gh-content").fitVids();
-});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.2/tocbot.min.js"></script>
 <script>
@@ -215,23 +219,23 @@ $(document).ready(function () {
         hasInnerContainers: true
     });
 </script>
-  <script type="text/javascript" src="{{asset "jquery.ghosthunter.js"}}"></script>
+<script type="text/javascript" src="{{asset "jquery.ghosthunter.js"}}"></script>
 
-  <script>
-      if (window.matchMedia("(max-width: 700px)").matches) {
-  // Viewport is less or equal to 700 pixels wide
-  document.querySelector(".search-box-area").remove();
-  document.querySelector(".collapse-button").insertAdjacentHTML("beforebegin","<div style='display: inline-block;'><form><input id='search-field' placeholder='Searching' class='search-box-input' autocomplete='off'/></form><div id='results' class='search-result-box'></div></div>");
-} else {
-  // Viewport is greater than 700 pixels wide
-}
+<script>
+    if (window.matchMedia("(max-width: 700px)").matches) {
+        // Viewport is less or equal to 700 pixels wide
+        document.querySelector(".search-box-area").remove();
+        document.querySelector(".collapse-button").insertAdjacentHTML("beforebegin","<div style='display: inline-block;'><form><input id='search-field' placeholder='Searching' class='search-box-input' autocomplete='off'/></form><div id='results' class='search-result-box'></div></div>");
+    } else {
+        // Viewport is greater than 700 pixels wide
+    }
     $("#search-field").ghostHunter({
         results: "#results",
         onPageLoad: true,
         onKeyUp: true,
         displaySearchInfo: false,
     });
-  </script>
+</script>
 {{{block "scripts"}}}
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
