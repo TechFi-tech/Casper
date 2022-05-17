@@ -1,0 +1,24 @@
+{{!< default}}
+
+<iframe id="writer-page" class="custom-iframe" src="" title="admin-news"></iframe>
+
+<script>
+
+
+    var integrationMemberJwt = getIntegrationMemberJwtToken();
+
+    var pageWriter = getWriterUrl();
+
+    console.log("-----------------------");
+    console.log(pageWriter);
+
+    function addCode() {
+        document.getElementById('custom-profile').setAttribute('src', pageWriter);
+    }
+
+    let elementId = 'writer-page';
+    let attrKey = 'src';
+    let attrValue = pageWriter;
+
+    addValueToAttr(elementId, attrKey, attrValue);
+</script>
