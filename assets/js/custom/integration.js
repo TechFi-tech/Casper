@@ -64,7 +64,10 @@ function getIntegrationMemberJwtToken() {
 
     return value;
 }
-
+function removeJwt(){
+    localStorage.removeItem(INTEGRATION_JWT_MEMBER_KEY);
+    localStorage.removeItem(INTEGRATION_JWT_MEMBER_KEY_DEADLINE);
+}
 const ghostIntegrationWriterPageURl = '/users/authors/author-page';
 
 function getWriterUrl() {
