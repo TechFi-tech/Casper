@@ -4,14 +4,7 @@
 
 <script>
 
-    let userId = '{{@member.uuid}}';
-    if (!userId){
-        removeJwt();
-    }
-    // console.log("----------------------------------")
-    // console.log(integrationMemberJwt);
-    // localStorage.setItem("GhostUserUUID",userId);
-    var integrationMemberJwt = getIntegrationMemberJwtToken();
+    let integrationMemberJwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
     console.log(integrationMemberJwt);
     if (!integrationMemberJwt){
         window.location.replace("#/portal/signup");

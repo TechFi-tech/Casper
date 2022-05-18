@@ -47,8 +47,16 @@
 
     </style>
     {{ghost_head}}
+
     <script src="{{asset "js/custom/integration.js"}}"></script>
     <script src="{{asset "js/custom/ghost_search.js"}}"></script>
+    <script>
+            {{#unless @member}}
+            removeJwt();
+            {{else}}
+            getIntegrationMemberJwtToken();
+            {{/unless}}
+    </script>
 
 </head>
 <body class="{{body_class}}
@@ -140,6 +148,7 @@
                 </form>
                 <div id="results" class="search-result-box"></div>
                 </div> --}}
+                <button class='btn btn-search-collapse' type='button' data-toggle='collapse' data-target='.search-collapse' aria-expanded='false' aria-controls='search-btn'>{{> "icons/search"}}</button>
                 <button class="custom-btn collapse-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
                     {{> "icons/menu"}}
                 </button>
@@ -147,11 +156,21 @@
         </nav>
     </header>
 
+    <div class="collapse search-collapse">
+    <div class="search-box-area">
+            <form>
+                <input id="search-field" placeholder="Searching" class="search-box-input-collapse" autocomplete="off"/>
+            </form>
+        <div id="results" class="search-result-box-collapse"></div>
+    </div>
+    </div>
+
     <div class="site-content">
         {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
 
     </div>
+
 
 
 
@@ -227,7 +246,7 @@
     if (window.matchMedia("(max-width: 700px)").matches) {
         // Viewport is less or equal to 700 pixels wide
         document.querySelector(".search-box-area").remove();
-        document.querySelector(".collapse-button").insertAdjacentHTML("beforebegin","<div style='display: inline-block;'><form><input id='search-field' placeholder='Searching' class='search-box-input' autocomplete='off'/></form><div id='results' class='search-result-box'></div></div>");
+        //document.querySelector(".collapse-button").insertAdjacentHTML("beforebegin","<button class='btn btn-primary' type='button' data-toggle='collapse' data-target='.multi-collapse' aria-expanded='false' aria-controls='multiCollapseExample1 multiCollapseExample2'><i class='fa-solid fa-magnifying-glass'></i></button>");
     } else {
         // Viewport is greater than 700 pixels wide
     }

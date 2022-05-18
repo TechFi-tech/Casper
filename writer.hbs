@@ -3,19 +3,25 @@
 <iframe id="writer-page" class="custom-iframe" src="" title="admin-news"></iframe>
 
 <script>
-    var integrationMemberJwt = getIntegrationMemberJwtToken();
-    var pageWriter = getWriterUrl();
+    let integrationMemberJwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
+    console.log(integrationMemberJwt);
+    if (!integrationMemberJwt){
+        window.location.replace("#/portal/signup");
+    }else {
+        var pageWriter = getWriterUrl();
 
-    console.log("-----------------------");
-    console.log(pageWriter);
+        console.log("-----------------------");
+        console.log(pageWriter);
 
-    function addCode() {
-        document.getElementById('custom-profile').setAttribute('src', pageWriter);
+        function addCode() {
+            document.getElementById('custom-profile').setAttribute('src', pageWriter);
+        }
+
+        let elementId = 'writer-page';
+        let attrKey = 'src';
+        let attrValue = pageWriter;
+
+        addValueToAttr(elementId, attrKey, attrValue);
     }
 
-    let elementId = 'writer-page';
-    let attrKey = 'src';
-    let attrValue = pageWriter;
-
-    addValueToAttr(elementId, attrKey, attrValue);
 </script>

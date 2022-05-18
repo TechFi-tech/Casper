@@ -14,29 +14,41 @@ function addValueToAttr(elementId, attrKey, attrValue) {
 }
 
 function httpPost(url, body, headers) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open('POST', url, false); // false for synchronous request
-    xmlHttp.setRequestHeader('Accept', 'application/json');
-    xmlHttp.setRequestHeader('Content-Type', 'application/json');
-    for (var key in headers) {
-        xmlHttp.setRequestHeader(key, headers[key]);
+    try {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('POST', url, false); // false for synchronous request
+        xmlHttp.setRequestHeader('Accept', 'application/json');
+        xmlHttp.setRequestHeader('Content-Type', 'application/json');
+        for (var key in headers) {
+            xmlHttp.setRequestHeader(key, headers[key]);
+        }
+
+        xmlHttp.send(JSON.stringify(body));
+        return xmlHttp.responseText;
+    } catch (e) {
+        console.log(e);
+        return null;
     }
 
-    xmlHttp.send(JSON.stringify(body));
-    return xmlHttp.responseText;
 }
 
 function httpGet(url, body, headers) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open('GET', url, false); // false for synchronous request
-    xmlHttp.setRequestHeader('Accept', 'application/json');
-    xmlHttp.setRequestHeader('Content-Type', 'application/json');
-    for (var key in headers) {
-        xmlHttp.setRequestHeader(key, headers[key]);
+    try {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('GET', url, false); // false for synchronous request
+        xmlHttp.setRequestHeader('Accept', 'application/json');
+        xmlHttp.setRequestHeader('Content-Type', 'application/json');
+        for (var key in headers) {
+            xmlHttp.setRequestHeader(key, headers[key]);
+        }
+
+        xmlHttp.send(JSON.stringify(body));
+        return xmlHttp.responseText;
+    } catch (e) {
+        console.log(e);
+        return null;
     }
 
-    xmlHttp.send(JSON.stringify(body));
-    return xmlHttp.responseText;
 }
 
 const ghostIntegrationJwtUrl = '/members/api/integration-member-jwt';
@@ -64,10 +76,12 @@ function getIntegrationMemberJwtToken() {
 
     return value;
 }
-function removeJwt(){
+
+function removeJwt() {
     localStorage.removeItem(INTEGRATION_JWT_MEMBER_KEY);
     localStorage.removeItem(INTEGRATION_JWT_MEMBER_KEY_DEADLINE);
 }
+
 const ghostIntegrationWriterPageURl = '/users/authors/author-page';
 
 function getWriterUrl() {

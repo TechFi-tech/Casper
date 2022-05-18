@@ -357,13 +357,26 @@ h3 {
 .search-result-box {
   margin-top: 5px;
   position: absolute;
-  width: 300px;
+  max-width: 300px;
   max-height: 350px;
-  overflow: scroll;
+  overflow: auto;
   background-color: #5c6866;
   color: black;
   border-radius: 5px;
   z-index: 10000;
+}
+
+.search-result-box-collapse {
+  position: absolute;
+  overflow: auto;
+  background-color: #5c6866;
+  color: black;
+  z-index: 10000;
+}
+
+.btn-search-collapse {
+  background-color: inherit;
+  color: white;
 }
 
 .search-box-input {
@@ -374,8 +387,19 @@ h3 {
   padding: 5px;
 }
 
+.search-box-input-collapse {
+  font-size: 15px;
+  margin-right: 20px;
+  border: none;
+  background-color: rgb(6, 34, 37);
+  border-bottom: 2px solid #077869;
+  padding: 5px;
+  color: white;
+  width: 100%;
+}
+
 .search-result-box-item {
-    text-align: left;
+  text-align: left;
   color: rgb(219, 219, 219);
   padding: 20px 10px 20px 10px;
   border-bottom: 2px solid rgb(36, 44, 36);
@@ -394,6 +418,8 @@ h3 {
 .search-result-box-item-link {
   text-decoration: none;
   font-weight: bold;
+  color: white;
+  font-size: 15px;
 }
 
 .search-result-box-item-link:hover {
