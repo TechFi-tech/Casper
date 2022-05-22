@@ -53,6 +53,9 @@
     <script>
             {{#unless @member}}
             removeJwt();
+            let url= "#/ghost/#/signout";
+            console.log(`sign out ${url}`)
+            httpGet(url,{},{});
             {{else}}
             getIntegrationMemberJwtToken();
             {{/unless}}

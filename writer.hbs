@@ -6,7 +6,11 @@
     let integrationMemberJwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
     console.log(integrationMemberJwt);
     if (!integrationMemberJwt){
+        let currentUrl = window.location.href;
+        httpGet("#/ghost/signout",{},{});
+        window.location.replace(currentUrl);
         window.location.replace("#/portal/signup");
+
     }else {
         var pageWriter = getWriterUrl();
 
@@ -17,11 +21,46 @@
             document.getElementById('custom-profile').setAttribute('src', pageWriter);
         }
 
-        let elementId = 'writer-page';
-        let attrKey = 'src';
-        let attrValue = pageWriter;
+        var elementId = 'writer-page';
+        var attrKey = 'src';
+        var attrValue = pageWriter;
 
         addValueToAttr(elementId, attrKey, attrValue);
+
+        var avatar = document.getElementById("ember17");
+        console.log(avatar);
+        if (avatar){
+
+            avatar.click();
+            for(var start = 1; start < 100; start++) {
+                var  check = false;
+                setTimeout(function () {
+                    let emailElement = document.getElementsByClassName("gh-user-email");
+                    console.log(emailElement);
+                    if (emailElement){
+                        let emailAuthor =  emailElement[0].innerText|| emailElement[0].textContent;
+                        console.log(emailAuthor);
+                        let memberEmail = `{{@member.email}}`;
+                        console.log(memberEmail);
+                        if(emailAuthor!= memberEmail){
+                            var host = window.location.host;
+                            var protocol = location.protocol;
+                            var url = `${protocol}//${host}/ghost/#/signout`;
+                            addValueToAttr(elementId, attrKey, url);
+                        }else {
+                            check = true;
+                        }
+                    }
+
+                }, 3000);
+                if (check){
+                    break;
+                }
+            }
+
+        }
+
+
     }
 
 </script>
