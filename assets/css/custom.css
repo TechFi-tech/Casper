@@ -229,7 +229,13 @@ h3 {
   color: #00bea5;
 }
 .toc-list-item {
-  margin-bottom: 2em;
+  margin-top: 1em;
+  margin-bottom: 0em;
+}
+.toc-list-item .toc-list-item{
+  margin-bottom: 1.2em;
+  margin-top: 1.2em;
+  line-height:normal ;
 }
 .toc-container {
   margin-left: -50px;
@@ -627,4 +633,8 @@ a:active .reaction {
 .custom-iframe {
   height: 100vh;
   width: 100%;
+}
+
+.site-footer {
+  padding: 20px 4vmin;
 }
