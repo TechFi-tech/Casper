@@ -1,12 +1,16 @@
 <script>
-    document.title = "TechFi - News";
+    document.title = "TechFi - Profile";
 </script>
 {{!< default}}
 
 <iframe id="custom-profile" class="custom-iframe" src="" title="admin-news"></iframe>
 
 <script>
-    document.title = "TechFi - News";
+    document.title = "TechFi - Profile";
+
+    document.getElementById('profile-image').onchange = function(){
+        window.location.reload();
+    }
 
     let integrationMemberJwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
     console.log(integrationMemberJwt);
