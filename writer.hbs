@@ -40,13 +40,15 @@
             var jwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
             // let url = 'https://staging.techfi.tech/ghost/api/admin/users/me/?include=roles';
             let user = httpGet(userInfoUrl, {}, {});
-
+            user= JSON.parse(user);
             let header = {
                 Authorization: `Bearer ${jwt}`
             };
             let userIntegration = httpGet(integrationProfileUrl, {}, header);
-
+            userIntegration= JSON.parse(userIntegration);
             if (!(userIntegration && user && user.users && user.users[0] && user.users[0].id == userIntegration.profile.author_id)) {
+                console.log(user.users[0].id)
+                console.log(userIntegration.profile.author_id)
                 var url = `${protocol}//${host}/ghost/#/signout`;
                 addValueToAttr(elementId, attrKey, url);
             }
