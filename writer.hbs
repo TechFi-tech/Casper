@@ -1,10 +1,16 @@
+<script>
+    document.title = 'TechFi - Writer';
+</script>
 {{!< default}}
 
+<script>
+    document.title = 'TechFi - Writer';
+</script>
 <iframe id="writer-page" class="custom-iframe" src="" title="admin-news"></iframe>
 
 <script>
     let integrationMemberJwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
-    console.log(integrationMemberJwt);
+
     if (!integrationMemberJwt) {
         let currentUrl = window.location.href;
         httpGet('#/ghost/signout', {}, {});
@@ -13,9 +19,6 @@
 
     } else {
         var pageWriter = getWriterUrl();
-
-        console.log('-----------------------');
-        console.log(pageWriter);
 
         function addCode() {
             document.getElementById('custom-profile').setAttribute('src', pageWriter);
@@ -32,7 +35,7 @@
             var protocol = location.protocol;
             var userInfoSlug = '/ghost/api/admin/users/me/?include=roles';
             var userInfoUrl = `${protocol}//${host}${userInfoSlug}`;
-            // console.log(url);
+
             var integrationProfileUrl = TechFiIntegrationBaseURL + '/users/profiles';
             var jwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
             // let url = 'https://staging.techfi.tech/ghost/api/admin/users/me/?include=roles';
@@ -43,13 +46,12 @@
             };
             let userIntegration = httpGet(integrationProfileUrl, {}, header);
 
-            console.log(user);
-            console.log(userIntegration);
             if (!(userIntegration && user && user.users && user.users[0] && user.users[0].id == userIntegration.profile.author_id)) {
                 var url = `${protocol}//${host}/ghost/#/signout`;
                 addValueToAttr(elementId, attrKey, url);
             }
         }
+
         checkSameUserUrl();
     }
 
