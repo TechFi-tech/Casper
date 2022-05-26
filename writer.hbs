@@ -5,16 +5,16 @@
 <script>
     let integrationMemberJwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
     console.log(integrationMemberJwt);
-    if (!integrationMemberJwt){
+    if (!integrationMemberJwt) {
         let currentUrl = window.location.href;
-        httpGet("#/ghost/signout",{},{});
-        window.location.replace(currentUrl);
-        window.location.replace("#/portal/signup");
+        httpGet('#/ghost/signout', {}, {});
+        // window.location.replace(currentUrl);
+        window.location.replace('#/portal/signup');
 
-    }else {
+    } else {
         var pageWriter = getWriterUrl();
 
-        console.log("-----------------------");
+        console.log('-----------------------');
         console.log(pageWriter);
 
         function addCode() {
@@ -27,40 +27,30 @@
 
         addValueToAttr(elementId, attrKey, attrValue);
 
-        var avatar = document.getElementById("ember17");
-        console.log(avatar);
-        if (avatar){
+        async function checkSameUserUrl() {
+            var host = window.location.host;
+            var protocol = location.protocol;
+            var userInfoSlug = '/ghost/api/admin/users/me/?include=roles';
+            var userInfoUrl = `${protocol}//${host}${userInfoSlug}`;
+            // console.log(url);
+            var integrationProfileUrl = TechFiIntegrationBaseURL + '/users/profiles';
+            var jwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
+            // let url = 'https://staging.techfi.tech/ghost/api/admin/users/me/?include=roles';
+            let user = httpGet(userInfoUrl, {}, {});
 
-            avatar.click();
-            for(var start = 1; start < 100; start++) {
-                var  check = false;
-                setTimeout(function () {
-                    let emailElement = document.getElementsByClassName("gh-user-email");
-                    console.log(emailElement);
-                    if (emailElement){
-                        let emailAuthor =  emailElement[0].innerText|| emailElement[0].textContent;
-                        console.log(emailAuthor);
-                        let memberEmail = `{{@member.email}}`;
-                        console.log(memberEmail);
-                        if(emailAuthor!= memberEmail){
-                            var host = window.location.host;
-                            var protocol = location.protocol;
-                            var url = `${protocol}//${host}/ghost/#/signout`;
-                            addValueToAttr(elementId, attrKey, url);
-                        }else {
-                            check = true;
-                        }
-                    }
+            let header = {
+                Authorization: `Bearer ${jwt}`
+            };
+            let userIntegration = httpGet(integrationProfileUrl, {}, header);
 
-                }, 3000);
-                if (check){
-                    break;
-                }
+            console.log(user);
+            console.log(userIntegration);
+            if (!(userIntegration && user && user.users && user.users[0] && user.users[0].id == userIntegration.profile.author_id)) {
+                var url = `${protocol}//${host}/ghost/#/signout`;
+                addValueToAttr(elementId, attrKey, url);
             }
-
         }
-
-
+        checkSameUserUrl();
     }
 
 </script>
