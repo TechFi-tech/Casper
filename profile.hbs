@@ -7,11 +7,6 @@
 
 <script>
     document.title = "TechFi - Profile";
-
-    document.getElementById('profile-image').onchange = function(){
-        window.location.reload();
-    }
-
     let integrationMemberJwt = localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY);
     console.log(integrationMemberJwt);
     if (!integrationMemberJwt){
@@ -31,6 +26,34 @@
         let attrValue = PageProfile;
 
         addValueToAttr(elementId, attrKey, attrValue);
+
+        /* function checkIframeLoaded() {
+            // Get a handle to the iframe element
+            var iframe = document.getElementById('custom-profile');
+            var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+            // Check if loading is complete
+            if (  iframeDoc.readyState  == 'complete' ) {
+                //iframe.contentWindow.alert("Hello");
+                iframe.contentWindow.onload = function(){
+                   console.log("I am loaded");
+                };
+                // The loading is complete, call the function we want executed once the iframe is loaded
+                window.location.reload();
+                return;
+            } 
+
+            // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
+            window.setTimeout(checkIframeLoaded, 1000);
+        }
+        checkIframeLoaded();*/
     }
 
+    async function removePortal() {
+        while(!document.querySelector('#ghost-portal-root')) {
+            await new Promise(r => setTimeout(r, 10));
+        }
+        document.getElementById('ghost-portal-root').remove();
+    }
+    removePortal();
 </script>
