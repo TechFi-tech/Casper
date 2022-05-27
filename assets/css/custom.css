@@ -638,3 +638,10 @@ a:active .reaction {
 .site-footer {
   padding: 20px 4vmin;
 }
+
+.offcanvas.show{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 80px;
+}
