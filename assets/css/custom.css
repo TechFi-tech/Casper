@@ -660,3 +660,7 @@ a:active .reaction {
 .site-content {
   margin-top: 50px
 }
+
+.article-image img{
+  width: 100%
+}
