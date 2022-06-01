@@ -645,3 +645,18 @@ a:active .reaction {
   justify-content: space-between;
   padding-bottom: 80px;
 }
+
+.gh-head {
+  padding: 1vmin 4vmin;
+  font-size: 1.6rem;
+  line-height: 1.3em;
+  color: #fff;
+  background: var(--ghost-accent-color);
+  width: 100%;
+  position: fixed;
+  z-index: 990;
+}
+
+.site-content {
+  margin-top: 50px
+}
