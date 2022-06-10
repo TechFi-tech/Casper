@@ -55,5 +55,18 @@ async function saveWebinar() {
     });
     if (res.status != 200) return;
     document.querySelector("#cls-1").setAttribute("fill", "#00bea5");
+  } else {
+    const URL = `https://integration.techfi.tech/staging/api/v1.0/webinars/unsave/webinar`;
+
+    let res = await fetch(URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({ user_id: webinarID, webinar_link: webinarURL }),
+    });
+    if (res.status != 200) return;
+    document.querySelector("#cls-1").setAttribute("fill", "grey");
   }
 }
