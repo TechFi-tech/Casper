@@ -1,0 +1,17 @@
+<script>
+  document.title = "TechFi - Webinars"
+</script>
+{{!< default}}
+<iframe
+  id="webinars-frame"
+  class="custom-iframe"
+  title="admin-webinars"
+></iframe>
+
+<script>
+
+  document.title = "TechFi - Webinars"; let PageNews
+  =`${integrationFrontend}/webinars`; console.log(PageNews); let elementId =
+  'webinars-frame'; let attrKey = 'src'; let attrValue = PageNews;
+  document.getElementById(elementId).setAttribute(attrKey, attrValue);
+</script>
