@@ -664,3 +664,8 @@ a:active .reaction {
 .article-image img{
   width: 100%
 }
+
+.share-block{
+  width: 250px;
+  text-align: start;
+}
