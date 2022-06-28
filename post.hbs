@@ -142,10 +142,38 @@ into the {body} tag of the default.hbs template --}}
 
     This query gets the latest 3 posts on the site, but adds a filter to
     exclude the post we're currently on from being included. --}}
-        {{#get "posts" filter="id:-{{id}}" include="authors" limit="3" as |more_posts|}}
 
+        {{! Get three posts that have the same primary tag as the current post}}
+        {{#get "posts" filter="primary_tag:{{primary_tag.slug}}"  include="authors" limit="3"}}
+            <aside class="read-more-wrap">
+                <p style="color:white;font-size: 20px;font-weight:bold;">More posts like this</p>
+                <div class="read-more inner">
+                    {{#foreach posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            </aside>
+        {{/get}}
+            
+
+        {{! Prevent the current post from being returned by filtering against its id }}
+        {{#get "posts" filter="authors:{{primary_author.slug}}+id:-{{id}}"  include="authors" limit="3"}}
+                
+                <aside class="read-more-wrap">
+                    <p style="color:white;font-size: 20px;font-weight:bold;">More posts by this author</p>
+                    <div class="read-more inner">
+                        {{#foreach posts}}
+                            {{> "post-card"}}
+                        {{/foreach}}
+                    </div>
+                </aside>
+        {{/get}}
+
+        {{#get "posts" filter="id:-{{id}}" include="authors" limit="3" as |more_posts|}}
+            
             {{#if more_posts}}
                 <aside class="read-more-wrap">
+                    <p style="color:white;font-size: 20px;font-weight:bold;">Recent posts</p>
                     <div class="read-more inner">
                         {{#foreach more_posts}}
                             {{> "post-card"}}
@@ -155,6 +183,7 @@ into the {body} tag of the default.hbs template --}}
             {{/if}}
 
         {{/get}}
+       
     {{/if}}
 
 {{/post}}
