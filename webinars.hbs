@@ -1,0 +1,20 @@
+<script>
+  document.title = "TechFi - Webinars"
+</script>
+
+<script>
+  function resizeIframe(obj) { obj.style.height =
+  obj.contentWindow.document.documentElement.scrollHeight + 'px'; }
+</script>
+
+{{!< default}}
+
+<iframe id="webinars-frame" src="" class="custom-iframe"></iframe>
+
+<script>
+
+  document.title = "TechFi - Webinars"; let PageNews
+  =`${integrationFrontend}/webinars`; console.log(PageNews); let elementId =
+  'webinars-frame'; let attrKey = 'src'; let attrValue = PageNews;
+  document.getElementById(elementId).setAttribute(attrKey, attrValue);
+</script>
