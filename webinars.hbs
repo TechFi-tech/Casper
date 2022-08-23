@@ -5,14 +5,26 @@
 <script>
   function resizeIframe(obj) { obj.style.height =
   obj.contentWindow.document.documentElement.scrollHeight + 'px'; }
+
+
 </script>
 
 {{!< default}}
 
-<iframe id="webinars-frame" src="" class="custom-iframe"></iframe>
+<script>
+    // send JWT to frontend integration
+    window.onload = function() {
+        var win = document.getElementById('webinars-frame').contentWindow;
+        win.postMessage(JSON.stringify({
+            key: INTEGRATION_JWT_MEMBER_KEY,
+            data: localStorage.getItem(INTEGRATION_JWT_MEMBER_KEY)
+        }), integrationFrontendURL);
+    };
+</script>
+
+<iframe id="webinars-frame" src="" class="custom-iframe" jwt="JWTTTTTTTTT"></iframe>
 
 <script>
-
   document.title = "TechFi - Webinars"; let PageNews
   =`${integrationFrontend}/webinars`; console.log(PageNews); let elementId =
   'webinars-frame'; let attrKey = 'src'; let attrValue = PageNews;
