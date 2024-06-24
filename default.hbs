@@ -43,6 +43,8 @@
 
     </style>
     {{ghost_head}}
+    <script src="{{asset "js/custom/integration.js"}}"></script>
+    <script src="{{asset "js/custom/ghost_search.js"}}"></script>
 
 </head>
 <body class="{{body_class}}
@@ -70,6 +72,12 @@
             </div>
             </div>
             <div class="gh-head-actions">
+            <div class="search-box-area">
+                <form>
+                    <input id="search-field" placeholder="Searching" class="search-box-input" autocomplete="off"/>
+                </form>
+                <div id="results" class="search-result-box"></div>
+            </div>
 
                 {{#unless @member}}
                     <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
@@ -104,6 +112,7 @@
                                 {{/if}}
 
                                 <a class="" href="https://www.youtube.com/channel/UC3BYnKuxkND7MZMwbzwf6Rg" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+                                <a class="" href="https://t.me/techfi_tech" title="Telegram" target="_blank" rel="noopener">{{> "icons/telegram"}}</a>
 
                             </div>
                             {{#unless @member}}
@@ -120,7 +129,13 @@
             </div>
 
 <!-- Button to open the offcanvas sidebar -->
-<button class="custom-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+{{!-- <div style="display: inline-block;">
+<form>
+    <input id="search-field" placeholder="Searching" class="search-box-input" autocomplete="off"/>
+</form>
+<div id="results" class="search-result-box"></div>
+</div> --}}
+<button class="custom-btn collapse-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
   {{> "icons/menu"}}
 </button>
 </div>
@@ -132,6 +147,8 @@
         {{{body}}}
 
     </div>
+
+
 
     {{!-- The global footer at the very bottom of the screen --}}
     <footer class="site-footer outer">
@@ -158,6 +175,7 @@
             {{/if}}
 
             <a class="" href="https://www.youtube.com/channel/UC3BYnKuxkND7MZMwbzwf6Rg" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+            <a class="" href="https://t.me/techfi_tech" title="Telegram" target="_blank" rel="noopener">{{> "icons/telegram"}}</a>
         </div>
         </div>
     </footer>
@@ -172,10 +190,11 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset "built/casper.js"}}"></script>
+  <script src="{{asset "built/casper.js"}}"></script>
+
 <script>
 
     $('.clap-alert').show()
@@ -196,6 +215,23 @@ $(document).ready(function () {
         hasInnerContainers: true
     });
 </script>
+  <script type="text/javascript" src="{{asset "jquery.ghosthunter.js"}}"></script>
+
+  <script>
+      if (window.matchMedia("(max-width: 700px)").matches) {
+  // Viewport is less or equal to 700 pixels wide
+  document.querySelector(".search-box-area").remove();
+  document.querySelector(".collapse-button").insertAdjacentHTML("beforebegin","<div style='display: inline-block;'><form><input id='search-field' placeholder='Searching' class='search-box-input' autocomplete='off'/></form><div id='results' class='search-result-box'></div></div>");
+} else {
+  // Viewport is greater than 700 pixels wide
+}
+    $("#search-field").ghostHunter({
+        results: "#results",
+        onPageLoad: true,
+        onKeyUp: true,
+        displaySearchInfo: false,
+    });
+  </script>
 {{{block "scripts"}}}
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
